@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   pigSorter = (pig1, pig2) => {
-    piggies = () => {if (this.state.porkSort === "name") {
+    if (this.state.porkSort === "name") {
       var pig1 = pig1.name.toUpperCase(); // ignore upper and lowercase
       var pig2 = pig2.name.toUpperCase(); // ignore upper and lowercase
         if (pig1 < pig2) {
@@ -45,13 +45,11 @@ class App extends Component {
       return pig2.fridgeWeight - pig1.fridgeWeight
     }
   }
-    this.state.pigsFilter ? piggies.filter(pig => pig.greased) : piggies
-  }
 
 
   render() {
     const pigFiltering = [...this.state.pigs].sort(this.pigSorter)
-    console.log(pigFiltering)
+    const finalPigList = this.state.pigFilter ? pigFiltering.filter(pig => pig.greased) : pigFiltering
     return (
       <div className="App">
         < Nav />
@@ -60,7 +58,7 @@ class App extends Component {
           <option value="weight">Weight</option>
           <option value="name">Name</option>
         </select>
-        <Piglist pigs={pigFiltering}/>
+        <Piglist pigs={finalPigList}/>
       </div>
     )
   }

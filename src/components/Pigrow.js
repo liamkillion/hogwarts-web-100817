@@ -19,7 +19,6 @@ class Pigrow extends React.Component{
   }
 
   render(){
-    console.log(this.state)
     var divStyle = {
       background: "#eee",
       padding: "20px",
