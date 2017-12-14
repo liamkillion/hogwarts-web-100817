@@ -48,8 +48,8 @@ class App extends Component {
 
 
   render() {
-    const pigFiltering = [...this.state.pigs].sort(this.pigSorter)
-    const finalPigList = this.state.pigFilter ? pigFiltering.filter(pig => pig.greased) : pigFiltering
+    const pigsSorted = [...this.state.pigs].sort(this.pigSorter)
+    const finalPigList = this.state.pigFilter ? pigsSorted.filter(pig => pig.greased) : pigsSorted
     return (
       <div className="App">
         < Nav />
