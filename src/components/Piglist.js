@@ -4,8 +4,7 @@ import Pigrow from './Pigrow.js'
 class Piglist extends React.Component{
 
   render(){
-    const pigs = this.props.pigs
-    const pigList = pigs.map( (pig) => (
+    const pigList = this.props.pigs.map( (pig) => (
       <Pigrow pig={pig}/>
     ));
     return(

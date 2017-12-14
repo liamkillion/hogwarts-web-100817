@@ -11,7 +11,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      pigs: []
+      pigs: [],
+      pigFilter: false
     }
   }
 
@@ -21,12 +22,18 @@ class App extends Component {
     })
   }
 
+  handleClick = (event) => {
+    this.setState({pigFilter: !this.state.pigFilter})
+  }
+
   render() {
+    var pigFiltering = this.state.pigFilter ? this.state.pigs.filter(pig => pig.greased) : this.state.pigs
+    debugger;
     return (
       <div className="App">
         < Nav />
-        <div></div>
-        <Piglist pigs={this.state.pigs}/>
+      <button onClick={this.handleClick}>Greased?</button>
+        <Piglist pigs={this.pigFiltering}/>
       </div>
     )
   }
